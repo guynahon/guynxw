@@ -1,32 +1,32 @@
 {
-  "name": "guynxw",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "app2",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "./src",
+  "sourceRoot": "app2/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/guynxw",
-        "index": "./src/index.html",
-        "browser": "./src/main.ts",
+        "outputPath": "dist/app2",
+        "index": "app2/src/index.html",
+        "browser": "app2/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "tsconfig.app.json",
+        "tsConfig": "app2/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
-            "input": "public"
+            "input": "app2/public"
           }
         ],
-        "styles": ["./src/styles.css"],
+        "styles": ["app2/src/styles.css"],
         "scripts": [],
-        "server": "src/main.server.ts",
+        "server": "app2/src/main.server.ts",
         "prerender": true,
         "ssr": {
-          "entry": "server.ts"
+          "entry": "app2/server.ts"
         }
       },
       "configurations": {
@@ -57,10 +57,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "guynxw:build:production"
+          "buildTarget": "app2:build:production"
         },
         "development": {
-          "buildTarget": "guynxw:build:development"
+          "buildTarget": "app2:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -68,20 +68,17 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "guynxw:build"
+        "buildTarget": "app2:build"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["./src"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "jest.config.app.ts"
+        "jestConfig": "app2/jest.config.ts"
       }
     }
   }
