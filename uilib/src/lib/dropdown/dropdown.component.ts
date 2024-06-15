@@ -24,7 +24,9 @@ export class DropdownComponent {
 
   isMenuOpen: boolean= false;
   callParentSelect(index: number) {
-    this.selectEvent.emit(this.options[index]);
+    const value = this.options[index];
+    this.placeholder = value;
+    this.selectEvent.emit(value);
   }
 
   toggleMenu() {
