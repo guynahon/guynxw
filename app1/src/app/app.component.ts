@@ -13,7 +13,7 @@ import { DropdownComponent } from '../../../uilib/src/lib/dropdown/dropdown.comp
     <lib-dropdown [options]="optionList" [placeholder]="optionsPlaceholder" (selectEvent)="onSelect($event)"></lib-dropdown>
     <lib-first-comp [text]="title"></lib-first-comp>
     <lib-image [imageUrl]="'https://png.pngtree.com/png-vector/20191126/ourmid/pngtree-image-of-cute-radish-vector-or-color-illustration-png-image_2040180.jpg'" [width]="'250'"></lib-image>
-    <div>DropDown selected option: {{currentOption}}</div>
+    <div>DropDown for {{title}} selected option: {{currentOption}}</div>
   `,
   styleUrl: './app.component.css',
 })
